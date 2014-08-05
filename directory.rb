@@ -24,3 +24,8 @@ puts "Jerome Pratt"
 puts "David Wickes"
 puts "Chris Oatley"
 puts "Marc Singh"
+print "Overall, we have "
+print 24
+puts " great students"
+print "line1\nLine2\nLine3"
+print 'line1\nLine2\nLine3'
