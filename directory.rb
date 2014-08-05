@@ -1,3 +1,4 @@
+#first, we print the list of students
 puts "The students of my cohort at Makers Academy"
 puts "---------------"
 puts "Javier Silverio"
@@ -24,8 +25,8 @@ puts "Jerome Pratt"
 puts "David Wickes"
 puts "Chris Oatley"
 puts "Marc Singh"
+#finally, we print the total
 print "Overall, we have "
+#it's important that print() doesn't add new line characters
 print 24
 puts " great students"
-print "line1\nLine2\nLine3"
-print 'line1\nLine2\nLine3'
