@@ -11,7 +11,7 @@
  	#while the name is not empty
  	while !name.empty? do
  		#get the student's cohort
- 		print "enter #{name}'s cohort"
+ 		print "enter #{name}'s cohort\n"
  		cohort = gets.chomp
  		cohort = "August" if cohort.empty? 
  		#get the student's hobby
@@ -39,12 +39,17 @@ def print_header
 	print "--------------\n"
 end
 
-def prints(students)
-	i = 0
-	while i < students.length
-		print "#{students[i][:name]} (#{students[i][:cohort]} cohort. Their hobby is #{students[i][:hobby]}. They were born on the #{students[i][:dob]} in #{students[i][:cob]})\n".center(100) 
-	i += 1
-	end
+def cohorts(student)
+	student.map {|student| student[:cohort]}.uniq
+end
+
+def prints(student)
+	cohorts(student).each do |cohort|
+		print "#{cohort}\n"
+			student.select {|x| x[:cohort] == cohort}.each do |student|
+			print "#{student[:name]} (#{student[:cohort]} cohort.\nTheir hobby is #{student[:hobby]}. They were born on the #{student[:dob]} in #{student[:cob]})\n".center(50) 
+		end
+	end	
 end
 
 def print_footer(names)
@@ -54,6 +59,7 @@ end
 students = input_students
 print_header
 prints(students)
+cohorts(students)
 print_footer(students)
 
 #finally, we print the total
