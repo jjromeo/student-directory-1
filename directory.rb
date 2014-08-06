@@ -7,7 +7,9 @@
  	students = [] 
  	#get the first name
  	print "enter student name\n"
- 	name = gets.chomp
+ 	pre_name = gets
+ 	pre_name2 = pre_name.length - 2
+ 	name = pre_name.slice(0..pre_name2)
  	#while the name is not empty
  	while !name.empty? do
  		#get the student's cohort
@@ -25,10 +27,19 @@
  		dob = gets.chomp
  		#add the student hash to the array
  		students << {:name => name, :cohort => cohort, :hobby => hobby, :cob => cob, :dob =>dob}
- 		print "Now we have #{students.length} students\n"
+ 		if students.length > 1 
+ 			print "Now we have #{students.length} students\n"
+ 		else 
+ 			print "Now we have #{students.length} student\n"
+ 		end
  		#get another name from the user
  		print "enter student name\n"
- 		name = gets.chomp
+ 			pre_name = gets
+ 			pre_name2 = pre_name.length - 2
+ 			if 
+ 				pre_name.length > 2 then name = pre_name.slice(0..pre_name2)
+ 			else name = ""
+ 			end
  	end
  #return the array of students
  students
@@ -46,7 +57,7 @@ end
 def prints(student)
 	cohorts(student).each do |cohort|
 		print "#{cohort}\n"
-			student.select {|x| x[:cohort] == cohort}.each do |student|
+		student.select {|x| x[:cohort] == cohort}.each do |student|
 			print "#{student[:name]} (#{student[:cohort]} cohort.\nTheir hobby is #{student[:hobby]}. They were born on the #{student[:dob]} in #{student[:cob]})\n".center(50) 
 		end
 	end	
